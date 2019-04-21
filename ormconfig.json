@@ -2,12 +2,9 @@
    "type": "mysql",
    "host": "localhost",
    "port": 3306,
-  "username": "root",
-  // HERE YOUR DB USERNAME
-  "password": "password",
-  // HERE YOUR DB PASSWORD
+  "username": "DB_USER",
+  "password": "DB_PASSWORD",
   "database": "buscatelo-api",
-  // DATABASE NAME
    "synchronize": true,
    "logging": false,
    "entities": [
