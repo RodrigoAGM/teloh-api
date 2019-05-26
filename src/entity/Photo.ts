@@ -9,7 +9,7 @@ import {Length} from "class-validator";
 export class Photo{
 
     @PrimaryGeneratedColumn()
-    idPhoto:number;
+    id:number;
 
     @Column()
     @Length(15,150)

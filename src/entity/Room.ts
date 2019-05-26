@@ -11,7 +11,7 @@ import {Comment} from "./Comment";
 export class Room{
 
     @PrimaryGeneratedColumn()
-    idRoom:number;
+    id:number;
 
     @Column()
     @Length(5,150)

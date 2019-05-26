@@ -1,12 +1,16 @@
 import {Room} from "./Room";
-import {Column, CreateDateColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
+import {
+    Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn,
+    UpdateDateColumn
+} from "typeorm";
 import {Length} from "class-validator";
 import {Booking} from "./Booking";
 
+@Entity()
 export class BookPeriod{
 
     @PrimaryGeneratedColumn()
-    idBookPeriod:number;
+    id:number;
 
     @Column({type:"int", width:24})
     duration:number;

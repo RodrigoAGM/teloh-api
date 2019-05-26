@@ -13,7 +13,7 @@ import {Room} from "./Room";
 export class Hotel{
 
     @PrimaryGeneratedColumn()
-    idHotel:number;
+    id:number;
 
     @Column()
     @Length(50)

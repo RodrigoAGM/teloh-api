@@ -1,12 +1,13 @@
-import {Column, CreateDateColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
+import {Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
 import {User} from "./User";
 import {Room} from "./Room";
 import {Length} from "class-validator";
 
+@Entity()
 export class Comment{
 
     @PrimaryGeneratedColumn()
-    idComment:number;
+    id:number;
 
     @Column()
     @Length(5,150)

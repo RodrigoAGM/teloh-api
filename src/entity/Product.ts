@@ -10,7 +10,7 @@ import {Photo} from "./Photo";
 export class Product{
 
     @PrimaryGeneratedColumn()
-    idProduct:number;
+    id:number;
 
     @Column()
     @Length(2,50)

@@ -8,7 +8,7 @@ import {Hotel} from "./Hotel";
 export class HotelOwner{
 
     @PrimaryGeneratedColumn()
-    idHotelOwner:number;
+    id:number;
 
     @Column()
     @Length(4,50)

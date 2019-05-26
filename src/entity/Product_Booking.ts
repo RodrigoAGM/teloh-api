@@ -1,12 +1,13 @@
 import {Column, Entity, JoinColumn, OneToOne, PrimaryColumn} from "typeorm";
 import {User} from "./User";
 import {Product} from "./Product";
+import {Booking} from "./Booking";
 
 @Entity()
 export class Product_Booking{
 
     @PrimaryColumn()
-    idBooking:number;
+    id:number;
 
     @PrimaryColumn()
     idProduct:number;
@@ -14,9 +15,9 @@ export class Product_Booking{
     @Column({type:"int"})
     quantity:number;
 
-    @OneToOne(type => User)
+    @OneToOne(type => Booking)
     @JoinColumn()
-    user:User;
+    booking:Booking;
 
     @OneToOne(type => Product)
     @JoinColumn()

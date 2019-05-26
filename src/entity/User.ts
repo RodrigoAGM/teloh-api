@@ -10,7 +10,7 @@ import {Comment} from "./Comment";
 export class User {
 
     @PrimaryGeneratedColumn()
-    idUser: number;
+    id: number;
 
     @Column()
     @Length(4, 50)
@@ -45,7 +45,7 @@ export class User {
     @OneToMany(type => Booking, booking => booking.user)
     bookings:Booking[];
 
-    @OneToMany(type => Comment, comment => comment.user)
+    @OneToMany(type => Comment, comments => comments.user)
     comments: Comment[];
 
     @Column()
