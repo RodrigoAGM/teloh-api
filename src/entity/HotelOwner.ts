@@ -1,17 +1,27 @@
-import {Entity, Unique} from "typeorm";
+import {Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, Unique, UpdateDateColumn} from "typeorm";
+import {Length} from "class-validator";
 
 
 @Entity()
-@Unique([])
-export class Hotel{
+@Unique(["username"])
+export class HotelOwner{
 
+    @PrimaryGeneratedColumn()
+    idHotelOwner:number;
 
-    idHotel:number;
-    address:string;
-    phone:string;
-    description:string;
-    email:string;
-    rate:number;
-    name:string;
+    @Column()
+    @Length(4,50)
+    username:string;
 
+    @Column()
+    @Length(4,50)
+    password:string;
+
+    @Column()
+    @CreateDateColumn()
+    createdAt: Date;
+
+    @Column()
+    @UpdateDateColumn()
+    updatedAt: Date;
 }
