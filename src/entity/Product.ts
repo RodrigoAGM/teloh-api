@@ -5,6 +5,7 @@ import {
 import {Hotel} from "./Hotel";
 import {Length} from "class-validator";
 import {Photo} from "./Photo";
+import {Product_Booking} from "./Product_Booking";
 
 @Entity()
 export class Product{
@@ -30,8 +31,11 @@ export class Product{
     @Column({type:"int"})
     stock:number;
 
-    @ManyToOne(type => Hotel, hotel => hotel.products)
+    @ManyToOne(() => Hotel, hotel => hotel.products)
     hotel:Hotel;
+
+    @OneToMany(()=>Product_Booking, pb => pb.product)
+    bookingConnection:Product_Booking[];
 
     @Column()
     @CreateDateColumn()

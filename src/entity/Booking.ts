@@ -1,7 +1,8 @@
-import {Column, Entity, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import {Length} from "class-validator";
 import {User} from "./User";
 import {BookPeriod} from "./BookPeriod";
+import {Product_Booking} from "./Product_Booking";
 
 @Entity()
 export class Booking{
@@ -16,9 +17,8 @@ export class Booking{
     @Column()
     active:boolean;
 
-    // @ManyToMany(type => Product)
-    // @JoinTable({name:"Product_Booking"})
-    // products:Product[];
+    @OneToMany(()=>Product_Booking, pb => pb.booking)
+    productConnection:Product_Booking[];
 
     @ManyToOne(type => User, user => user.bookings)
     user:User;

@@ -1,4 +1,4 @@
-import {Column, Entity, JoinColumn, OneToOne, PrimaryColumn} from "typeorm";
+import {Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryColumn} from "typeorm";
 import {User} from "./User";
 import {Product} from "./Product";
 import {Booking} from "./Booking";
@@ -7,19 +7,19 @@ import {Booking} from "./Booking";
 export class Product_Booking{
 
     @PrimaryColumn()
-    id:number;
+    bookingId:number;
 
     @PrimaryColumn()
-    idProduct:number;
+    productId:number;
 
     @Column({type:"int"})
     quantity:number;
 
-    @OneToOne(type => Booking)
-    @JoinColumn()
+    @ManyToOne(() => Booking, booking => booking.productConnection, {primary:true})
+    @JoinColumn({name:"bookingId"})
     booking:Booking;
 
-    @OneToOne(type => Product)
-    @JoinColumn()
+    @ManyToOne(() => Product, product => product.bookingConnection, {primary:true})
+    @JoinColumn({name:"productId"})
     product:Product;
 }
