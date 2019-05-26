@@ -1,5 +1,6 @@
-import {Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, Unique, UpdateDateColumn} from "typeorm";
+import {Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, Unique, UpdateDateColumn} from "typeorm";
 import {Length} from "class-validator";
+import {Hotel} from "./Hotel";
 
 
 @Entity()
@@ -16,6 +17,9 @@ export class HotelOwner{
     @Column()
     @Length(4,50)
     password:string;
+
+    @OneToMany(type => Hotel, hotel => hotel.hotelOwner)
+    hotels:Hotel[];
 
     @Column()
     @CreateDateColumn()

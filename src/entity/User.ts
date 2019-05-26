@@ -1,6 +1,8 @@
-import {Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, Unique, UpdateDateColumn} from "typeorm";
+import {Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, Unique, UpdateDateColumn} from "typeorm";
 import {IsNotEmpty, Length} from "class-validator";
 import * as bcrypt from "bcryptjs";
+import {Booking} from "./Booking";
+import {Comment} from "./Comment";
 
 
 @Entity()
@@ -26,7 +28,7 @@ export class User {
     @Length(6, 45)
     email: string;
 
-    @Column()
+    @Column({type:"int"})
     age: number;
 
     @Column({nullable:true})
@@ -39,6 +41,12 @@ export class User {
 
     @Column()
     bookingEnabled: boolean;
+
+    @OneToMany(type => Booking, booking => booking.user)
+    bookings:Booking[];
+
+    @OneToMany(type => Comment, comment => comment.user)
+    comments: Comment[];
 
     @Column()
     @CreateDateColumn()
