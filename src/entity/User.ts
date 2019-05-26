@@ -8,14 +8,14 @@ import * as bcrypt from "bcryptjs";
 export class User {
 
     @PrimaryGeneratedColumn()
-    id: number;
+    idUser: number;
 
     @Column()
-    @Length(4, 20)
+    @Length(4, 50)
     username: string;
 
     @Column()
-    @Length(4, 100)
+    @Length(4, 45)
     password: string;
 
     @Column()
@@ -23,19 +23,22 @@ export class User {
     role: string;
 
     @Column()
-    @Length(6, 100)
+    @Length(6, 45)
     email: string;
 
     @Column()
     age: number;
 
-    @Column()
-    @Length(2, 100)
+    @Column({nullable:true})
+    @Length(2, 50)
     firstName: string;
 
-    @Column()
-    @Length(2, 100)
+    @Column({nullable:true})
+    @Length(2, 50)
     lastName: string;
+
+    @Column()
+    bookingEnabled: boolean;
 
     @Column()
     @CreateDateColumn()
