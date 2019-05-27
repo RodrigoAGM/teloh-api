@@ -173,11 +173,13 @@ export class PhotoController{
             return;
         }
 
+        let photo:Photo;
+
         try {
-            let photo = await photoRepository.findOneOrFail(id);
-            res.send(photo);
+            photo = await photoRepository.findOneOrFail(id);
         } catch (error) {
             res.status(404).send("Photo not found");
+            return;
         }
 
         photoRepository.delete(id);

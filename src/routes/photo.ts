@@ -13,10 +13,10 @@ router.get(
     PhotoController.getOneById
 );
 
-router.get("/myPhotos/:idHotel([0-9]+)/", [checkJwt, checkRole(["ADMIN"])], PhotoController.listAllByHotel);
+router.get("/:idHotel([0-9]+)/myPhotos/", [checkJwt, checkRole(["ADMIN"])], PhotoController.listAllByHotel);
 
 router.get(
-    "/myPhotos/:idHotel([0-9]+)/:id([0-9]+)",
+    "/:idHotel([0-9]+)/myPhotos/:id([0-9]+)",
     [checkJwt, checkRole(["ADMIN"])],
     PhotoController.getOneByIdAndHotel
 );
