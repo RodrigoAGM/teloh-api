@@ -6,7 +6,7 @@ import {validate} from "class-validator";
 
 export class ProductController{
 
-    async listAll(req: Request, res: Response){
+    static listAll = async(req: Request, res: Response) =>{
 
         const productRepository = getRepository(Product);
 
@@ -14,7 +14,7 @@ export class ProductController{
         res.send(products);
     };
 
-    async getOneById(req: Request, res: Response) {
+    static getOneById = async(req: Request, res: Response) => {
 
         const productRepository = getRepository(Product);
 
@@ -70,7 +70,7 @@ export class ProductController{
         }
     };
 
-    async save(req: Request, res: Response){
+    static save = async(req: Request, res: Response) => {
 
         const productRepository = getRepository(Product);
         const hotelRepository = getRepository(Hotel);
@@ -112,7 +112,7 @@ export class ProductController{
         res.status(201).send("Product saved");
     };
 
-    async edit(req: Request, res: Response) {
+    static edit = async(req: Request, res: Response) => {
 
         const productRepository = getRepository(Product);
         const hotelRepository = getRepository(Hotel);
@@ -161,7 +161,7 @@ export class ProductController{
         res.status(201).send("Product edited");
     };
 
-    async delete(req: Request, res: Response) {
+    static delete = async(req: Request, res: Response) => {
 
         const productRepository = getRepository(Product);
         const hotelRepository = getRepository(Hotel);

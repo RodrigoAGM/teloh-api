@@ -5,6 +5,7 @@ import hotelOwner from "./hotelOwner";
 import hotel from "./hotel";
 import photo from "./photo";
 import room from "./room";
+import product from "./product";
 
 const routes = Router();
 
@@ -14,5 +15,6 @@ routes.use("/owner", hotelOwner);
 routes.use("/hotel", hotel);
 routes.use("/photo", photo);
 routes.use("/room", room);
+routes.use("/product", product);
 
 export default routes;
