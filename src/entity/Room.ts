@@ -25,7 +25,7 @@ export class Room{
     smoking:boolean;
 
     @Column({type:"int"})
-    avaliable:number;
+    available:number;
 
     @ManyToOne(type => Hotel, hotel => hotel.rooms)
     hotel:Hotel;

@@ -16,26 +16,26 @@ export class Hotel{
     id:number;
 
     @Column()
-    @Length(50)
+    @Length(2,50)
     address:string;
 
     @Column()
-    @Length(15)
+    @Length(6,15)
     phone:string;
 
     @Column()
-    @Length(150)
+    @Length(10,150)
     description:string;
 
     @Column({nullable:true})
-    @Length(45)
+    @Length(10,45)
     email:string;
 
     @Column({width: 5, type:"decimal"})
     rate:number;
 
     @Column()
-    @Length(45)
+    @Length(3,45)
     name:string;
 
     @ManyToOne(type => HotelOwner, hotelOwner => hotelOwner.hotels)

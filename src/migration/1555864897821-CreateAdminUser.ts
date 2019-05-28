@@ -12,6 +12,7 @@ export class CreateAdminUser1555864897821 implements MigrationInterface {
         user.email = "admin@admin.com";
         user.firstName = "AdminName";
         user.lastName = "AdminLastName";
+        user.bookingEnabled = true;
         user.age = 50;
         const userRepository = getRepository(User);
         await userRepository.save(user);
