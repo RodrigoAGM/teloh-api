@@ -5,6 +5,8 @@ To run the project follow this instructions:
 
 Create the Schema in MySQL: ```buscatelo-api```
 
+MySql version: ```8.0.15```
+
 #### Then type this commands:
 
 Install TypeORM : ```npm install -g typeorm```
