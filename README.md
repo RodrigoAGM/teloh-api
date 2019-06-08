@@ -15,7 +15,7 @@ Install TypeORM : ```npm install -g typeorm```
 
 Install node dependencies : ```npm install```
 
-Start the project : ```npm start```
+Confirm that you have the right credentials in ```ormconfig.json``` and then start the project : ```npm start```
 
 For the propose to create news Users you need a first User with 
 an **ADMIN** role.
