@@ -3,6 +3,8 @@
 ---
 To run the project follow this instructions:
 
+Download the LTS version for [Node.js](https://nodejs.org/en/)
+
 Create the Schema in MySQL: ```buscatelo-api```
 
 MySql version: ```8.0.15```
