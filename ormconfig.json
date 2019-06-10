@@ -1,25 +1,24 @@
 {
    "type": "mysql",
-   "host": "ehc1u4pmphj917qf.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+   "host": "localhost",
    "port": 3306,
-  "username": "sm6j2zu9leuza0rv",
-  "password": "rge8ag7h7gp3yzn4",
-  "database": "au3mi1sirh9k953o",
+  "username": "root",
+  "password": "Rodrigo1807",
+  "database": "buscatelo-api",
    "synchronize": true,
    "logging": false,
    "entities": [
-      "build/entity/**/*.js"
+      "src/entity/**/*.ts"
    ],
    "migrations": [
-      "build/migration/**/*.js"
+      "src/migration/**/*.ts"
    ],
    "subscribers": [
-      "build/subscriber/**/*.js"
+      "src/subscriber/**/*.ts"
    ],
    "cli": {
-      "entitiesDir": "build/entity",
-      "migrationsDir": "build/migration",
-      "subscribersDir": "build/subscriber"
-   },
-   "migrationsRun":true
+      "entitiesDir": "src/entity",
+      "migrationsDir": "src/migration",
+      "subscribersDir": "src/subscriber"
+   }
 }
