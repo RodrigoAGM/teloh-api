@@ -27,8 +27,7 @@ export class Hotel{
     @Length(10,150)
     description:string;
 
-    @Column({nullable:true})
-    @Length(10,45)
+    @Column({nullable:true, length:45})
     email:string;
 
     @Column({width: 5, type:"decimal"})

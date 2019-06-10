@@ -8,7 +8,7 @@ class UserController {
         //Get users from database
         const userRepository = getRepository(User);
         const users = await userRepository.find({
-            select: ["id", "username", "role", "email", "age", "firstName", "lastName"] //We dont want to send the passwords on response
+            select: ["id", "username", "role", "email", "age", "firstName", "lastName", "bookingEnabled"] //We dont want to send the passwords on response
         });
 
         //Send the users object
@@ -23,7 +23,7 @@ class UserController {
         const userRepository = getRepository(User);
         try {
             const user = await userRepository.findOneOrFail(id, {
-                select: ["id", "username", "role", "email", "age", "firstName", "lastName"] //We dont want to send the password on response
+                select: ["id", "username", "role", "email", "age", "firstName", "lastName", "bookingEnabled"] //We dont want to send the password on response
             });
             res.send(user);
         } catch (error) {
@@ -33,7 +33,7 @@ class UserController {
 
     static newUser = async (req: Request, res: Response) => {
         //Get parameters from the body
-        let {username, password, role, email, age, firstName, lastName} = req.body;
+        let {username, password, role, email, age, firstName, lastName, bookingEnabled} = req.body;
         let user = new User();
         user.username = username;
         user.password = password;
@@ -42,6 +42,7 @@ class UserController {
         user.age = age;
         user.firstName = firstName;
         user.lastName = lastName;
+        user.bookingEnabled = bookingEnabled;
 
 
         //Validate if the parameters are ok
@@ -72,7 +73,7 @@ class UserController {
         const id = req.params.id;
 
         //Get values from the body
-        const {username, role, email, age, firstName, lastName} = req.body;
+        const {username, role, email, age, firstName, lastName, bookingEnabled} = req.body;
 
         //Try to find user on database
         const userRepository = getRepository(User);
@@ -92,6 +93,7 @@ class UserController {
         user.age = age;
         user.firstName = firstName;
         user.lastName = lastName;
+        user.bookingEnabled = bookingEnabled;
         const errors = await validate(user);
         if (errors.length > 0) {
             res.status(400).send(errors);

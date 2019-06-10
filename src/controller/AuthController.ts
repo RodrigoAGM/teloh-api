@@ -38,7 +38,7 @@ class AuthController {
         );
 
         // Send the jwt in the response
-        res.send(token);
+        res.send({"token" : token});
     };
 
 

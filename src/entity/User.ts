@@ -31,12 +31,10 @@ export class User {
     @Column({type:"int"})
     age: number;
 
-    @Column({nullable:true})
-    @Length(2, 50)
+    @Column({nullable:true, length:50})
     firstName: string;
 
-    @Column({nullable:true})
-    @Length(2, 50)
+    @Column({nullable:true, length:50})
     lastName: string;
 
     @Column()

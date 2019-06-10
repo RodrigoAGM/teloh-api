@@ -15,8 +15,7 @@ export class Photo{
     @Length(15,150)
     url:string;
 
-    @Column({nullable:true})
-    @Length(2,150)
+    @Column({nullable:true, length:150})
     description:string;
 
     @ManyToOne(type => Hotel, hotel => hotel.photos)
