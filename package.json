@@ -5,7 +5,7 @@
    "devDependencies": {
       "ts-node": "3.3.0",
       "@types/node": "^8.0.29",
-      "typescript": "2.5.2"
+      "typescript": "3.4.3"
    },
    "dependencies": {
       "@types/bcryptjs": "^2.4.2",
@@ -28,7 +28,7 @@
    "scripts": {
       "tsc": "tsc",
       "start": "set debug=* && ts-node-dev --respawn --transpileOnly ./src/index.ts",
-      "prod": "tsc && node ./build/app.js",
+      "prod": "tsc && node ./build/index.js",
       "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run"
    }
 }

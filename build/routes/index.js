@@ -1,0 +1,22 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var auth_1 = require("./auth");
+var user_1 = require("./user");
+var hotelOwner_1 = require("./hotelOwner");
+var hotel_1 = require("./hotel");
+var photo_1 = require("./photo");
+var room_1 = require("./room");
+var product_1 = require("./product");
+var product_2 = require("./product");
+var routes = express_1.Router();
+routes.use("/auth", auth_1.default);
+routes.use("/user", user_1.default);
+routes.use("/owner", hotelOwner_1.default);
+routes.use("/hotel", hotel_1.default);
+routes.use("/photo", photo_1.default);
+routes.use("/room", room_1.default);
+routes.use("/product", product_1.default);
+routes.use("/bookPeriod", product_2.default);
+exports.default = routes;
+//# sourceMappingURL=index.js.map

@@ -1,0 +1,22 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var checkRole_1 = require("../middlewares/checkRole");
+var express_1 = require("express");
+var checkJwt_1 = require("../middlewares/checkJwt");
+var BookingController_1 = require("../controller/BookingController");
+var router = express_1.Router();
+router.get("/", [checkJwt_1.checkJwt, checkRole_1.checkRole(["ADMIN"])], BookingController_1.BookingController.listAll);
+router.get("/:id([0-9]+)", [checkJwt_1.checkJwt, checkRole_1.checkRole(["ADMIN"])], BookingController_1.BookingController.getOneById);
+router.get("/byCode/:code", [checkJwt_1.checkJwt, checkRole_1.checkRole(["ADMIN"])], BookingController_1.BookingController.getOneByCode);
+router.get("/:idBookPeriod([0-9]+)/myBookings/", [checkJwt_1.checkJwt, checkRole_1.checkRole(["ADMIN"])], BookingController_1.BookingController.listAllbyBookPeriod);
+router.get("/:idBookPeriod([0-9]+)/myBookings/:id([0-9]+)", [checkJwt_1.checkJwt, checkRole_1.checkRole(["ADMIN"])], BookingController_1.BookingController.getOneByIdAndBookPeriod);
+router.get("/:idBookPeriod([0-9]+)/myBookings/byCode/:code", [checkJwt_1.checkJwt, checkRole_1.checkRole(["ADMIN"])], BookingController_1.BookingController.getOneByCodeAndBookPeriod);
+router.get("/:idUser([0-9]+)/myBookings/", [checkJwt_1.checkJwt, checkRole_1.checkRole(["ADMIN"])], BookingController_1.BookingController.listAllByUser);
+router.get("/:idUser([0-9]+)/myBookings/:id([0-9]+)", [checkJwt_1.checkJwt, checkRole_1.checkRole(["ADMIN"])], BookingController_1.BookingController.getOneByIdAndUser);
+router.get("/:idUser([0-9]+)/myBookings/byCode/:code", [checkJwt_1.checkJwt, checkRole_1.checkRole(["ADMIN"])], BookingController_1.BookingController.getOneByCodeAndUser);
+router.post("/:idUser([0-9]+)/:idBookPeriod([0-9]+)/", [checkJwt_1.checkJwt, checkRole_1.checkRole(["ADMIN"])], BookingController_1.BookingController.save);
+router.patch("/:idUser([0-9]+)/:id([0-9]+)", [checkJwt_1.checkJwt, checkRole_1.checkRole(["ADMIN"])], BookingController_1.BookingController.cancel);
+router.patch("/:idUser([0-9]+)/byCode/:code", [checkJwt_1.checkJwt, checkRole_1.checkRole(["ADMIN"])], BookingController_1.BookingController.cancelByCode);
+router.delete("/:idUser([0-9]+)/:id([0-9]+)", [checkJwt_1.checkJwt, checkRole_1.checkRole(["ADMIN"])], BookingController_1.BookingController.delete);
+exports.default = router;
+//# sourceMappingURL=booking.js.map
